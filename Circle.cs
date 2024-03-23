@@ -7,21 +7,14 @@ using System.Threading.Tasks;
 
 namespace ShapeAreaCalculator
 {
-     // Circle class implementing IShape interface
     public class Circle : IShape
     {
         public double Radius { get; set; }
 
-        // Constructor for Circle with radius parameter
-        public Circle(double radius)
+        public double GetArea()
         {
-            Radius = radius;
-        }
-
-        // Accepts a visitor to calculate the area
-        public void Accept(IShapeVisitor visitor)
-        {
-            visitor.Visit(this);
+            // Calculate the area of the circle using the formula πr²
+            return Math.PI * Radius * Radius;
         }
     }
 }

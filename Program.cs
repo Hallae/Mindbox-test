@@ -2,34 +2,29 @@
 
 namespace ShapeAreaCalculator
 {
-   
-
-    class Program
+    public interface IShape
     {
-        static void Main(string[] args)
-        {
-            //  the Circle, Rectangle, and Triangle classes
-            Circle circle = new Circle(5);
-            Rectangle rectangle = new Rectangle(4, 6);
-            Triangle triangle = new Triangle(3, 4, 5);
+        double GetArea();
+    }
 
-            // Create an instance of the AreaCalculator
-            AreaCalculator areaCalculator = new AreaCalculator();
+    public class Program
+    {
+        public static void Main(string[] args)
+        {  
+            // Create a Circle object with a radius of 5
+            Circle circle = new Circle { Radius = 5 };
 
-            // Calculate and print the area of the circle
-            circle.Accept(areaCalculator);
-            Console.WriteLine($"Area of the circle: {areaCalculator.Area}");
+            // Print the area of the circle
+            Console.WriteLine($"Circle area: {circle.GetArea()}");
 
-            // Calculate and print the area of the rectangle
-            rectangle.Accept(areaCalculator);
-            Console.WriteLine($"Area of the rectangle: {areaCalculator.Area}");
+            // Create a Triangle object with sides of 3, 4, and 5 units
+            Triangle triangle = new Triangle { Side1 = 3, Side2 = 4, Side3 = 5 };
 
-            // Calculate and print the area of the triangle
-            triangle.Accept(areaCalculator);
-            Console.WriteLine($"Area of the triangle: {areaCalculator.Area}");
+            // Print the area of the triangle
+            Console.WriteLine($"Triangle area: {triangle.GetArea()}");
 
-            // Check if the triangle is right-angled and print the result
-            Console.WriteLine($"Is the triangle right-angled? {triangle.IsRightAngled()}");
+            // Print whether the triangle is right-angled
+            Console.WriteLine($"Is triangle rectangular? {triangle.IsRectangular()}");
         }
     }
 }
